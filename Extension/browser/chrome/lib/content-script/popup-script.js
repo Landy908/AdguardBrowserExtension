@@ -29,7 +29,12 @@
             window.close();
         },
         resizePopup() {
-            // Doing nothing
+            const zoom = (100 / Math.floor(((window.outerWidth) / window.innerWidth) * 100));
+            const bodyStyle = document.querySelector('body').style;
+            bodyStyle.zoom = zoom;
+            if (zoom < 1) {
+                bodyStyle.minWidth = `${zoom * 320}px`;
+            }
         },
     };
 })(adguardContent);
